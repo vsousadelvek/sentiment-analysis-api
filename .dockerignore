@@ -1,0 +1,11 @@
+# Ignorar ambiente virtual e caches
+.venv
+venv
+__pycache__
+
+# Ignorar pastas de versionamento e de IDE
+.git
+.idea
+
+# Ignorar arquivos compilados do Python
+*.pyc

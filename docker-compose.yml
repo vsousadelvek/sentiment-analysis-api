@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  # Nome do nosso serviço
+  api:
+    # Diz ao Compose para construir a imagem usando o Dockerfile no diretório atual.
+    build: .
+    # Mapeia a porta 8000 da sua máquina para a porta 8000 do contêiner.
+    ports:
+      - "8000:8000"
+    # Monta o diretório atual dentro do contêiner.
+    # Isso permite "hot-reloading": mudanças no seu código local refletem
+    # instantaneamente dentro do contêiner, sem precisar reconstruir a imagem.
+    volumes:
+      - ./:/app
