@@ -18,7 +18,7 @@ Empresas recebem um volume massivo de feedback em texto todos os dias — review
 -   **Score de Confiança:** Retorna a confiança do modelo na classificação, permitindo filtrar resultados de baixa precisão.
 -   **API RESTful:** Fácil de integrar com qualquer aplicação, site ou outro serviço.
 -   **Documentação Automática:** Interface interativa (Swagger UI) gerada automaticamente pelo FastAPI para testes e exploração da API.
--   **Performance:** Construída com FastAPI e Uvicorn, garantindo alta performance para requisições assíncronas.
+-   **Pronto para Produção:** Conteinerizado com Docker e Docker Compose para portabilidade e facilidade de implantação.
 
 ## 🛠️ Stack Tecnológica
 
@@ -26,37 +26,22 @@ Empresas recebem um volume massivo de feedback em texto todos os dias — review
 -   **Framework:** FastAPI
 -   **Servidor:** Uvicorn
 -   **Inteligência Artificial:** Hugging Face Transformers com o modelo `cardiffnlp/twitter-xlm-roberta-base-sentiment-v2`.
+-   **Conteinerização:** Docker & Docker Compose
 -   **Validação de Dados:** Pydantic
 
-## 🚀 Como Executar Localmente
+## 🚀 Rodando com Docker (Método Recomendado)
 
-Siga os passos abaixo para ter uma instância da API rodando em sua máquina.
+Com o Docker e o Docker Compose instalados, você precisa de apenas dois comandos para ter a API funcionando.
 
 **1. Clone o repositório:**
 ```bash
-git clone [https://github.com/vsousadelvek/sentiment_analysis_api.git](https://github.com/vsousadelvek/sentiment_analysis_api.git)
-cd sentiment_analysis_api
+git clone [https://github.com/vsousadelvek/sentiment-analysis-api.git](https://github.com/vsousadelvek/sentiment-analysis-api.git)
+cd sentiment-analysis-api
 ```
 
-**2. Crie e ative um ambiente virtual:**
+**2. Construa a imagem e inicie o contêiner:**
 ```bash
-# Windows
-python -m venv venv
-.\venv\Scripts\activate
-
-# Linux / macOS
-python3 -m venv venv
-source venv/bin/activate
-```
-
-**3. Instale as dependências:**
-```bash
-pip install -r requirements.txt
-```
-
-**4. Inicie o servidor:**
-```bash
-uvicorn main:app --reload
+docker-compose up --build
 ```
 
 A API estará disponível em `http://127.0.0.1:8000`.
@@ -88,12 +73,32 @@ curl -X 'POST' \
 }
 ```
 
-## 🐳 Suporte a Docker (Em Breve)
+<details>
+<summary><strong>Rodando Manualmente (Alternativo)</strong></summary>
 
-Este projeto será conteinerizado com Docker para facilitar o deploy e garantir a portabilidade. O comando para executar será:
+Se preferir não usar o Docker, você pode rodar o projeto localmente com um ambiente virtual Python.
+
+**1. Crie e ative um ambiente virtual:**
 ```bash
-docker-compose up --build
+# Windows
+python -m venv venv
+.\venv\Scripts\activate
+
+# Linux / macOS
+python3 -m venv venv
+source venv/bin/activate
 ```
+
+**2. Instale as dependências:**
+```bash
+pip install -r requirements.txt
+```
+
+**3. Inicie o servidor:**
+```bash
+uvicorn main:app --reload
+```
+</details>
 
 ---
 *Criado por Delvek da Silva Venceslau de Sousa*
